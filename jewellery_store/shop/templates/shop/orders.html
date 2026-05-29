@@ -1,0 +1,18 @@
+{% extends 'shop/base.html' %} {% block content %}
+<h2>My Orders</h2>
+
+{% for order in orders %}
+<div class="card">
+  <img src="{{ order.product.image }}" width="150"/>
+
+  <h3>{{ order.product.name }}</h3>
+
+  <p>Quantity: {{ order.quantity }}</p>
+
+  <p>Total: ₹{{ order.total_price }}</p>
+
+  <p>Ordered On: {{ order.created_at }}</p>
+</div>
+{% empty %}
+<p>No orders placed yet.</p>
+{% endfor %} {% endblock %}
